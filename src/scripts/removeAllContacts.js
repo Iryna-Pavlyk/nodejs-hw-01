@@ -3,7 +3,8 @@ import fs from 'node:fs/promises';
 
 export const removeAllContacts = async () => {
   try {
-    const contacts = await fs;
+    await fs.writeFile(PATH_DB, JSON.stringify([], null, 2), 'utf-8');
+    console.log('Контакти видалені успішно');
   } catch (error) {
     console.log('Помилка видалення контактів:', error);
   }
